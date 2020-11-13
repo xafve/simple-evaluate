@@ -166,7 +166,9 @@ class Lexer {
     }
 
     let index = 0;
-    while (!this.optable[tok] && tok !== undefined) {
+    let prev = null;
+    while ((!this.optable[tok] || ((tok === '-') && (prev != null) && (prev.toLowerCase() === 'e'))) && tok !== undefined) {
+      prev = tok
       tok = this.pickNext(index);
       index += 1;
     }

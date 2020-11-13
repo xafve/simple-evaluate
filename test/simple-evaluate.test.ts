@@ -39,6 +39,11 @@ describe('simple evaluate', () => {
       '12 !== 12',
       '9 - 1 > 10 && 3 * 5 > 10',
       '9 - 1 > 10 || 3 * 5 > 10',
+      '1.2e2 === 120',
+      '1.2e-2 === 0.012',
+      '1.2E2 === 120',
+      '1.2E-2 === 0.012',
+      '1.2E-2 + 1.2e2',
     ].map(expression => {
       // tslint:disable-next-line:no-eval
       evaluate(null, expression).should.equal(eval(expression));
